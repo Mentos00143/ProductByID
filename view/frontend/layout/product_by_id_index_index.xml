@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Product by ID</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block
+                name="product_by_id_helper"
+                template="Perspective_ProductByID::product_by_id.phtml"
+            />
+            <block
+                name="product_by_id_view_model"
+                template="Perspective_ProductByID::product_by_id_view_model.phtml"
+            >
+                <arguments>
+                    <argument
+                        name="view_model"
+                        xsi:type="object">Perspective\ProductByID\ViewModel\ProductById</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

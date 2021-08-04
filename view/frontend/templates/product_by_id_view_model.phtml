@@ -1,0 +1,27 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/**@var \Perspective\ProductByID\ViewModel\ProductById $viewModel*/
+$viewModel = $block->getData('view_model');
+$productSku = $viewModel->getProductBySku();
+$product = $viewModel->getProductById();
+?>
+<h3>Entity product by ID with <a target="_blank" href="https://devdocs.magento.com/guides/v2.4/extension-dev-guide/view-models.html">View Model</a></h3>
+<?php if (is_string($product)): ?>
+    <h2>Такого продукта нема!</h2>
+<?php else: ?>
+<?php echo __('Name: '); ?><?php echo $product->getName(); ?>
+    <br>
+<?php echo __('Sku: '); ?><?php echo $product->getSku(); ?>
+<br>
+<?php endif; ?>
+<br>
+<h3>Entity product by Sku with <a target="_blank" href="https://devdocs.magento.com/guides/v2.4/extension-dev-guide/view-models.html">View Model</a></h3>
+<?php if (is_string($productSku)): ?>
+    <h2>Такого продукта нема!</h2>
+<?php else: ?>
+    <?php echo __('Name: '); ?><?php echo $productSku->getName(); ?>
+    <br>
+    <?php echo __('Sku: '); ?><?php echo $productSku->getId(); ?>
+    <br>
+<?php endif; ?>
+<hr>

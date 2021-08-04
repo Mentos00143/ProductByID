@@ -1,0 +1,27 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var \Perspective\ProductByID\Helper\ProductById $helper */
+$helper = $this->helper(\Perspective\ProductByID\Helper\ProductById::class);
+$product = $helper->getProductById();
+$productSku = $helper->getProductBySku();
+?>
+<h3>Entity product by ID with Helper</h3>
+<?php if (is_string($product)): ?>
+    <h2>Такого продукта нема!</h2>
+<?php else: ?>
+    <?php echo __('Name: '); ?><?php echo $product->getName(); ?>
+    <br>
+    <?php echo __('Sku: '); ?><?php echo $product->getSku(); ?>
+    <br>
+<?php endif; ?>
+    <br>
+    <h3>Entity product by Sku with Helper</h3>
+<?php if (is_string($productSku)): ?>
+    <h2>Такого продукта нема!</h2>
+<?php else: ?>
+    <?php echo __('Name: '); ?>  <?php echo $productSku->getName(); ?>
+    <br>
+    <?php echo __('Sku: '); ?><?php echo $productSku->getId(); ?>
+    <br>
+<?php endif; ?>
+<hr>
